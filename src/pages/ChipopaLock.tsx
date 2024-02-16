@@ -1,5 +1,5 @@
 import React, { FC, useRef, useState } from "react";
-import { Box, Button, Dialog, DialogContent, DialogTitle, TextField, Typography } from "@mui/material";
+import { Box, Button, Dialog, DialogContent, DialogTitle, TextField } from "@mui/material";
 import { useWindowSize } from "react-use";
 import ReactConfetti from "react-confetti";
 
