@@ -11,6 +11,7 @@ export const Home: FC = () => {
 
             <Link to={"/escape-room/porch-lock"}>Porch lock</Link>
             <Link to={"/escape-room/bedroom-lock"}>Bedroom lock</Link>
+            <Link to={"/escape-room/chipopa-lock"}>Chipopa lock</Link>
         </Box>
     );
 }

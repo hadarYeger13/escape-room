@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PorchLock } from "./pages/PorchLock";
 import { Layout } from "./pages/Layout";
 import { BedroomLock } from "./pages/BedroomLock";
+import { ChipopaLock } from "./pages/ChipopaLock";
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
                     <Route index element={<Home/>}/>
                     <Route path={"porch-lock"} element={<PorchLock/>}/>
                     <Route path={"bedroom-lock"} element={<BedroomLock/>}/>
+                    <Route path={"chipopa-lock"} element={<ChipopaLock/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
