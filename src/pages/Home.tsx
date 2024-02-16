@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import { HomeLock } from "./HomeLock";
 
 export const Home: FC = () => {
     return (
@@ -9,6 +10,7 @@ export const Home: FC = () => {
                 Select a lock
             </Typography>
 
+            <Link to={"/home-lock"}>Home lock</Link>
             <Link to={"/porch-lock"}>Porch lock</Link>
             <Link to={"/bedroom-lock"}>Bedroom lock</Link>
             <Link to={"/chipopa-lock"}>Chipopa lock</Link>

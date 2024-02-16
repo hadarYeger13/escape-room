@@ -1,9 +1,6 @@
 # TDL:
-- Add the first lock. I don't have the answer yet...
+- Add home lock logic
 - Fix the answer to the porch lock.
-- Handle QR codes.
-- Change the icon in the browser to something else.
-- Change the domain. 
 
 # Done:
 - Upload this to a static webpage I can access from my phone. _uploaded using githubPages_
@@ -11,3 +8,8 @@
 - Add routing so every puzzle will be in a different page.
 - Check if there is an issue when navigating directly into a puzzle on the github page. If the navigation won't work
 add a navigation back to the homepage from each puzzle/lock. _Fixed by using HashRouter that adds # to the pages_
+- Handle QR codes.
+
+# Out of scope:
+- Change the icon in the browser to something else.
+- Change the domain.
