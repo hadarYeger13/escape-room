@@ -9,9 +9,9 @@ export const Home: FC = () => {
                 Select a lock
             </Typography>
 
-            <Link to={"/escape-room/porch-lock"}>Porch lock</Link>
-            <Link to={"/escape-room/bedroom-lock"}>Bedroom lock</Link>
-            <Link to={"/escape-room/chipopa-lock"}>Chipopa lock</Link>
+            <Link to={"/porch-lock"}>Porch lock</Link>
+            <Link to={"/bedroom-lock"}>Bedroom lock</Link>
+            <Link to={"/chipopa-lock"}>Chipopa lock</Link>
         </Box>
     );
 }

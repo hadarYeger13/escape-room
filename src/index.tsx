@@ -1,24 +1,21 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Home } from "./pages/Home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { PorchLock } from "./pages/PorchLock";
-import { Layout } from "./pages/Layout";
 import { BedroomLock } from "./pages/BedroomLock";
 import { ChipopaLock } from "./pages/ChipopaLock";
 
 const App = () => {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
-                <Route path={"/escape-room/"} element={<Layout/>}>
-                    <Route index element={<Home/>}/>
-                    <Route path={"porch-lock"} element={<PorchLock/>}/>
-                    <Route path={"bedroom-lock"} element={<BedroomLock/>}/>
-                    <Route path={"chipopa-lock"} element={<ChipopaLock/>}/>
-                </Route>
+                <Route path={"/"} element={<Home/>}/>
+                <Route path={"porch-lock"} element={<PorchLock/>}/>
+                <Route path={"bedroom-lock"} element={<BedroomLock/>}/>
+                <Route path={"chipopa-lock"} element={<ChipopaLock/>}/>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
