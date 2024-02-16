@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { HomeLock } from "./HomeLock";
 
 export const Home: FC = () => {
     return (
