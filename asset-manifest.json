@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/escape-room/static/js/main.a31aeaac.js",
+    "main.js": "/escape-room/static/js/main.22dd1462.js",
     "index.html": "/escape-room/index.html",
-    "main.a31aeaac.js.map": "/escape-room/static/js/main.a31aeaac.js.map"
+    "main.22dd1462.js.map": "/escape-room/static/js/main.22dd1462.js.map"
   },
   "entrypoints": [
-    "static/js/main.a31aeaac.js"
+    "static/js/main.22dd1462.js"
   ]
 }
