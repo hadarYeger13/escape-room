@@ -8,7 +8,7 @@ const isNumber = (value: string): boolean => {
     return reg.test(value);
 }
 
-export const PorchPuzzle: FC = () => {
+export const PorchLock: FC = () => {
     const [value1, setValue1] = useState<number | "">("");
     const [value2, setValue2] = useState<number | "">("");
     const [value3, setValue3] = useState<number | "">("");

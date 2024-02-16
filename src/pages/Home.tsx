@@ -6,11 +6,11 @@ export const Home: FC = () => {
     return (
         <Box sx={{ display: "flex", flexDirection: "column"}}>
             <Typography>
-                Select a puzzle
+                Select a lock
             </Typography>
 
-            <Link to={"/escape-room/porch-puzzle"}>Porch puzzle</Link>
-            <Link to={"/escape-room/bedroom-puzzle"}>Bedroom puzzle</Link>
+            <Link to={"/escape-room/porch-lock"}>Porch lock</Link>
+            <Link to={"/escape-room/bedroom-lock"}>Bedroom lock</Link>
         </Box>
     );
 }

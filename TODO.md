@@ -1,6 +1,5 @@
 # TDL:
 - Add the rest of the puzzles.
-- Change Puzzle to Lock.
 - Check if there is an issue when navigating directly into a puzzle on the github page. If the navigation won't work 
 add a navigation back to the homepage from each puzzle/lock.
 - Fix the answers to the puzzle once I figure them out.

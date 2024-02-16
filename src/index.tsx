@@ -2,9 +2,9 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Home } from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { PorchPuzzle } from "./pages/PorchPuzzle";
+import { PorchLock } from "./pages/PorchLock";
 import { Layout } from "./pages/Layout";
-import { BedroomPuzzle } from "./pages/BedroomPuzzle";
+import { BedroomLock } from "./pages/BedroomLock";
 
 const App = () => {
     return (
@@ -12,8 +12,8 @@ const App = () => {
             <Routes>
                 <Route path={"/escape-room/"} element={<Layout/>}>
                     <Route index element={<Home/>}/>
-                    <Route path={"porch-puzzle"} element={<PorchPuzzle/>}/>
-                    <Route path={"bedroom-puzzle"} element={<BedroomPuzzle/>}/>
+                    <Route path={"porch-lock"} element={<PorchLock/>}/>
+                    <Route path={"bedroom-lock"} element={<BedroomLock/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

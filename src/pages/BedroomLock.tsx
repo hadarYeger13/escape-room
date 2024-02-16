@@ -4,7 +4,7 @@ import { useZxing } from "react-zxing";
 import ReactConfetti from "react-confetti";
 import { useWindowSize } from "react-use";
 
-export const BedroomPuzzle: FC = () => {
+export const BedroomLock: FC = () => {
     const { width, height } = useWindowSize();
     const [showConfetti, setShowConfetti] = useState<boolean>();
 
