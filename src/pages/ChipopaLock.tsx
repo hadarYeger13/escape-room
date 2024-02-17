@@ -3,6 +3,24 @@ import { Box, Button, Dialog, DialogContent, DialogTitle, TextField } from "@mui
 import { useWindowSize } from "react-use";
 import ReactConfetti from "react-confetti";
 
+type MisleadingAnswer = {
+    answer: string;
+    errorDialogText: string;
+}
+const misleadingAnswers: MisleadingAnswer[] = [
+    { answer: "נשיקה", errorDialogText: "באמת חשבת שזה כזה קל?" },
+    { answer: "1111", errorDialogText: "ווהו! שוב נפלת בבור??" },
+    { answer: "גוצ׳ה", errorDialogText: "צ׳יפוטון, צ׳יפוטון... מה נעשה איתך צ׳יפוטון?" },
+    { answer: "כלים", errorDialogText: "נכון! אבל זאת לא התשובה, סתם רצינו לוודא שלא שכחת..." },
+    { answer: "צ׳יפופו החכם", errorDialogText: "כנראה לא כזה חכם..." },
+    { answer: "קאהוט", errorDialogText: "ערבבת את כל הקלפים..? טיפשוני..." },
+    { answer: "באמצע הבית", errorDialogText: "ווהו! כמעט נפלתי! אהה לא.. זה אתה נפלת בפח!" },
+    { answer: "מנה חמה", errorDialogText: "איכסססס אנחנו לא מעודדים דברים כאלה!" },
+    { answer: "אנדרו", errorDialogText: "בררר מתקרר... איפה אנדרו כשצריך אותו?" },
+    { answer: "טוסיק", errorDialogText: "ווהו תזהר לא ליפול על הטוסיק המתוק הזה! אוי.. מאוחר מידי..." },
+    { answer: "סיוון", errorDialogText: "אם נופל, נופל יפה..." },
+];
+
 export const ChipopaLock: FC = () => {
     const { width, height } = useWindowSize();
     const [showConfetti, setShowConfetti] = useState<boolean>(false);
@@ -21,45 +39,10 @@ export const ChipopaLock: FC = () => {
     const onSubmit = () => {
         if(value !== "צ׳יפופה המתוקה") {
             setError(true);
-            if (value === "נשיקה") {
+            const misleadingAnswer = misleadingAnswers.find(ma => ma.answer === value);
+            if (misleadingAnswer) {
                 setErrorDialogOpen(true);
-                errorDialogText.current = "באמת חשבת שזה כזה קל?";
-            }
-            if (value === "1111") {
-                setErrorDialogOpen(true);
-                errorDialogText.current = "ווהו! שוב נפלת בבור??"
-            }
-            if (value === "גוצ׳ה") {
-                setErrorDialogOpen(true);
-                errorDialogText.current = "צ׳יפוטון, צ׳יפוטון... מה נעשה איתך צ׳יפוטון?";
-            }
-            if (value === "כלים") {
-                setErrorDialogOpen(true);
-                errorDialogText.current = "נכון! אבל זאת לא התשובה, סתם רצינו לוודא שלא שכחת...";
-            }
-            if (value === "צ׳יפופו החכם") {
-                setErrorDialogOpen(true);
-                errorDialogText.current = "כנראה לא כזה חכם...";
-            }
-            if (value === "קאהוט") {
-                setErrorDialogOpen(true);
-                errorDialogText.current = "ערבבת את כל הקלפים..? טיפשוני...";
-            }
-            if (value === "לא במקום" || value === "בסלון" || value === "באמצע הבית") {
-                setErrorDialogOpen(true);
-                errorDialogText.current = "ווהו! כמעט נפלתי! אהה לא.. זה אתה נפלת בפח!";
-            }
-            if (value === "מנה חמה") {
-                setErrorDialogOpen(true);
-                errorDialogText.current = "איכסססס אנחנו לא מעודדים דברים כאלה!";
-            }
-            if (value === "אנדרו") {
-                setErrorDialogOpen(true);
-                errorDialogText.current = "בררר מתקרר... איפה אנדרו כשצריך אותו?"
-            }
-            if (value === "טוסיק") {
-                setErrorDialogOpen(true);
-                errorDialogText.current = "ווהו תזהר לא ליפול על הטוסיק המתוק הזה! אוי.. מאוחר מידי..."
+                errorDialogText.current = misleadingAnswer.errorDialogText;
             }
         }
         else {
