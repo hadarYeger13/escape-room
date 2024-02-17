@@ -43,7 +43,7 @@ export const ChipopaLock: FC = () => {
             }
             if (value === "קאהוט") {
                 setErrorDialogOpen(true);
-                errorDialogText.current = "ערבבת את כל הקלפים..?";
+                errorDialogText.current = "ערבבת את כל הקלפים..? טיפשוני...";
             }
             if (value === "לא במקום" || value === "בסלון" || value === "באמצע הבית") {
                 setErrorDialogOpen(true);
@@ -52,6 +52,14 @@ export const ChipopaLock: FC = () => {
             if (value === "מנה חמה") {
                 setErrorDialogOpen(true);
                 errorDialogText.current = "איכסססס אנחנו לא מעודדים דברים כאלה!";
+            }
+            if (value === "אנדרו") {
+                setErrorDialogOpen(true);
+                errorDialogText.current = "בררר מתקרר... איפה אנדרו כשצריך אותו?"
+            }
+            if (value === "טוסיק") {
+                setErrorDialogOpen(true);
+                errorDialogText.current = "ווהו תזהר לא ליפול על הטוסיק המתוק הזה! אוי.. מאוחר מידי..."
             }
         }
         else {
