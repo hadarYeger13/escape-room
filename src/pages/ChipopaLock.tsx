@@ -9,7 +9,7 @@ type MisleadingAnswer = {
 }
 const misleadingAnswers: MisleadingAnswer[] = [
     { answer: "נשיקה", errorDialogText: "באמת חשבת שזה כזה קל?" },
-    { answer: "1111", errorDialogText: "ווהו! שוב נפלת בבור??" },
+    { answer: "1111", errorDialogText: "too easy..." },
     { answer: "גוצ׳ה", errorDialogText: "צ׳יפוטון, צ׳יפוטון... מה נעשה איתך צ׳יפוטון?" },
     { answer: "כלים", errorDialogText: "נכון! אבל זאת לא התשובה, סתם רצינו לוודא שלא שכחת..." },
     { answer: "צ׳יפופו החכם", errorDialogText: "כנראה לא כזה חכם..." },
@@ -21,6 +21,14 @@ const misleadingAnswers: MisleadingAnswer[] = [
     { answer: "סיוון", errorDialogText: "אם נופל, נופל יפה..." },
 ];
 
+const genericErrorMessages: string[] = [
+    "חבל, דווקא יש לך פרצוף יפה",
+    "חותכים עפים...",
+    "אתה מפסיד אותי...",
+    "אני קורצת?",
+    "אוו עצוב לך"
+]
+
 export const ChipopaLock: FC = () => {
     const { width, height } = useWindowSize();
     const [showConfetti, setShowConfetti] = useState<boolean>(false);
@@ -30,6 +38,7 @@ export const ChipopaLock: FC = () => {
 
     const [errorDialogOpen, setErrorDialogOpen] = useState<boolean>(false);
     const errorDialogText = useRef<string>("");
+    const errorDialogType = useRef<"error" | "misleading">(null);
 
     const onValueChange = (e) => {
         setError(false);
@@ -37,12 +46,26 @@ export const ChipopaLock: FC = () => {
     }
 
     const onSubmit = () => {
+        if (value === "") {
+            return;
+        }
         if(value !== "צ׳יפופה המתוקה") {
             setError(true);
             const misleadingAnswer = misleadingAnswers.find(ma => ma.answer === value);
             if (misleadingAnswer) {
                 setErrorDialogOpen(true);
+                errorDialogType.current = "misleading";
                 errorDialogText.current = misleadingAnswer.errorDialogText;
+            }
+            else {
+                const genericErrorMessageIndex = Math.floor(Math.random() * (genericErrorMessages.length + 1));
+                console.log("%%%");
+                console.log(genericErrorMessageIndex);
+                if (genericErrorMessageIndex < genericErrorMessages.length) {
+                    setErrorDialogOpen(true);
+                    errorDialogText.current = genericErrorMessages[genericErrorMessageIndex];
+                    errorDialogType.current = "error";
+                }
             }
         }
         else {
@@ -80,7 +103,7 @@ export const ChipopaLock: FC = () => {
                 <DialogTitle sx={{ display: "flex", justifyContent: "center" }}
                     dir={"rtl"}
                 >
-                    נפלת בפח!
+                    {errorDialogType.current === "error" ? "טעות!" : "נפלת בפח!"}
                 </DialogTitle>
                 <DialogContent
                     dir={"rtl"}
