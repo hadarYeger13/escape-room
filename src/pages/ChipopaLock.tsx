@@ -10,7 +10,7 @@ type MisleadingAnswer = {
 const misleadingAnswers: MisleadingAnswer[] = [
     { answer: "נשיקה", errorDialogText: "באמת חשבת שזה כזה קל?" },
     { answer: "1111", errorDialogText: "too easy..." },
-    { answer: "גוצ׳ה", errorDialogText: "צ׳יפוטון, צ׳יפוטון... מה נעשה איתך צ׳יפוטון?" },
+    { answer: "גוצ׳ה", errorDialogText: "יצאת דג..." },
     { answer: "כלים", errorDialogText: "נכון! אבל זאת לא התשובה, סתם רצינו לוודא שלא שכחת..." },
     { answer: "צ׳יפופו החכם", errorDialogText: "כנראה לא כזה חכם..." },
     { answer: "קאהוט", errorDialogText: "ערבבת את כל הקלפים..? טיפשוני..." },
@@ -18,7 +18,7 @@ const misleadingAnswers: MisleadingAnswer[] = [
     { answer: "מנה חמה", errorDialogText: "איכסססס אנחנו לא מעודדים דברים כאלה!" },
     { answer: "אנדרו", errorDialogText: "בררר מתקרר... איפה אנדרו כשצריך אותו?" },
     { answer: "טוסיק", errorDialogText: "ווהו תזהר לא ליפול על הטוסיק המתוק הזה! אוי.. מאוחר מידי..." },
-    { answer: "סיוון", errorDialogText: "אם נופל, נופל יפה..." },
+    { answer: "סיוון", errorDialogText: "פק פקה! מתחיל לפחד שזה לא ייגמר לעולם..?" },
 ];
 
 const genericErrorMessages: string[] = [
@@ -26,7 +26,9 @@ const genericErrorMessages: string[] = [
     "חותכים עפים...",
     "אתה מפסיד אותי...",
     "אני קורצת?",
-    "אוו עצוב לך"
+    "אוו עצוב לך",
+    "צ׳יפוטון, צ׳יפוטון... מה נעשה איתך צ׳יפוטון?",
+    "אם נופל, נופל יפה..,"
 ]
 
 export const ChipopaLock: FC = () => {
@@ -59,8 +61,6 @@ export const ChipopaLock: FC = () => {
             }
             else {
                 const genericErrorMessageIndex = Math.floor(Math.random() * (genericErrorMessages.length + 1));
-                console.log("%%%");
-                console.log(genericErrorMessageIndex);
                 if (genericErrorMessageIndex < genericErrorMessages.length) {
                     setErrorDialogOpen(true);
                     errorDialogText.current = genericErrorMessages[genericErrorMessageIndex];
