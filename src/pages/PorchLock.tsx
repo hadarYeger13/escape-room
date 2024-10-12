@@ -64,7 +64,7 @@ export const PorchLock: FC = () => {
     }
 
     const onSubmit = () => {
-        if (value1 === 3 && value2 === 9 && value3 === 4 && value4 === 7) {
+        if (value1 === 6 && value2 === 3 && value3 === 9 && value4 === 4) {
             setShowConfetti(true);
         }
         else {
