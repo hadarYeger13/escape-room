@@ -12,7 +12,7 @@ export const Home: FC = () => {
             <Link to={"/home-lock"}>Home lock</Link>
             <Link to={"/porch-lock"}>Porch lock</Link>
             <Link to={"/bedroom-lock"}>Bedroom lock</Link>
-            <Link to={"/chipopa-lock"}>Chipopa lock</Link>
+            <Link to={"/stroller-lock"}>Stroller lock</Link>
         </Box>
     );
 }

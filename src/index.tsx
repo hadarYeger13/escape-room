@@ -4,8 +4,8 @@ import { Home } from "./pages/Home";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { PorchLock } from "./pages/PorchLock";
 import { BedroomLock } from "./pages/BedroomLock";
-import { ChipopaLock } from "./pages/ChipopaLock";
 import { HomeLock } from "./pages/HomeLock";
+import { StrollerLock } from "./pages/StrollerLock";
 
 const App = () => {
     return (
@@ -15,7 +15,7 @@ const App = () => {
                 <Route path={"home-lock"} element={<HomeLock/>}/>
                 <Route path={"porch-lock"} element={<PorchLock/>}/>
                 <Route path={"bedroom-lock"} element={<BedroomLock/>}/>
-                <Route path={"chipopa-lock"} element={<ChipopaLock/>}/>
+                <Route path={"stroller-lock"} element={<StrollerLock/>}/>
             </Routes>
         </HashRouter>
     )
