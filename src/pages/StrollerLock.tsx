@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, OutlinedInput, SxProps, Typography } from "@mui/material";
 import ReactConfetti from "react-confetti";
 import { useWindowSize } from "react-use";
@@ -28,7 +28,7 @@ const getQuestionInfo = (questionNumber: number): QuestionInfo => {
         case 3:
             return {
                 question: "באיזה תאריך אדם נולד?",
-                answer: "42 50 61"
+                answer: "50 61"
             }
         case 4:
             return {
@@ -79,20 +79,32 @@ export const StrollerLock: FC = () => {
     const [isQuizDialogOpen, setIsQuizDialogOpen] = useState<boolean>(false);
     const [questionNumber, setQuestionNumber] = useState<number>(0);
     const questionInfo = getQuestionInfo(questionNumber);
-    // TODO: Hadar. Maybe we can use useMemo here so it will be calculated only when the question number changes.
     const initialAnswerLettersArray = getInitialAnswerLettersArray(questionInfo.answer);
     const [answerLetters, setAnswerLetters] = useState<Array<Array<string>>>(initialAnswerLettersArray);
+    const inputRefs = useRef([]);
     const [error, setError] = useState<boolean>(false);
-
     const [isSuccessDialogOpen, setIsSuccessDialogOpen] = useState<boolean>(false);
 
     const { width, height } = useWindowSize();
     const [showConfetti, setShowConfetti] = useState<boolean>(false);
 
-
     const onStartClick = () => {
-        // setIsQuizDialogOpen(true);
-        setIsSuccessDialogOpen(true);
+        setIsQuizDialogOpen(true);
+    }
+
+    const focusNextLetter = (wordIndex, letterIndex) => {
+        let nextWordIndex = wordIndex;
+        let nextLetterIndex = letterIndex + 1;
+        const splitted = questionInfo.answer.split(" ");
+        if (splitted[wordIndex].length - 1 === letterIndex) {
+            if (splitted.length - 1 === wordIndex) {
+                return;
+            } else {
+                nextWordIndex = wordIndex + 1;
+                nextLetterIndex = 0;
+            }
+        }
+        inputRefs.current[nextWordIndex][nextLetterIndex].focus();
     }
 
     const onValueChange = (e, wordIndex, letterIndex) => {
@@ -104,6 +116,7 @@ export const StrollerLock: FC = () => {
             newAnswerLetters[wordIndex][letterIndex] = newChar;
             return newAnswerLetters;
         });
+        focusNextLetter(wordIndex, letterIndex);
     }
 
     const onNextClick = () => {
@@ -148,6 +161,10 @@ export const StrollerLock: FC = () => {
                                         {[...Array(questionInfo.answer.split(" ")[wordIndex].length)].map((_, letterIndex) =>
                                             <OutlinedInput sx={inputSxProps}
                                                            key={wordIndex + "" + letterIndex}
+                                                           inputRef={(ref) => {
+                                                               inputRefs.current[wordIndex] = inputRefs.current[wordIndex] || [];
+                                                               inputRefs.current[wordIndex][letterIndex] = ref;
+                                                           }}
                                                            dir={"rtl"}
                                                            value={answerLetters[wordIndex][letterIndex]}
                                                            onChange={e => onValueChange(e, wordIndex, letterIndex)}
